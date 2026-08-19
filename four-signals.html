@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Signals — Band Name Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Rye&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#050711;
+    --accent:#ff5f6d; --accent2:#7c5cff;
+    --text:#f2efe9; --muted:#8b93ab;
+    --display:'Monoton', cursive;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Space Mono', monospace;
+    min-height:100vh;
+    transition:background 0.7s ease, color 0.7s ease;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  #bgLayer{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    transition:opacity 0.8s ease;
+  }
+
+  .wrap{
+    position:relative; z-index:1;
+    max-width:920px; margin:0 auto;
+    padding:36px 24px 100px;
+  }
+
+  /* ---------- HEADER / CHANNEL SWITCH ---------- */
+
+  header{ margin-bottom:44px; }
+
+  .eyebrow{
+    font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:10px;
+  }
+
+  h1.masthead{
+    font-family:'Space Mono', monospace;
+    font-weight:700;
+    font-size:clamp(28px, 5vw, 40px);
+    letter-spacing:-0.01em;
+    margin-bottom:6px;
+  }
+
+  .masthead-sub{
+    color:var(--muted); font-size:13px; max-width:520px; line-height:1.6;
+  }
+
+  nav.dial{
+    display:flex; gap:2px; margin-top:28px;
+    border:1px solid var(--muted); border-radius:var(--radius);
+    overflow:hidden; width:fit-content; max-width:100%;
+  }
+
+  nav.dial button{
+    font-family:'Space Mono', monospace;
+    font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+    background:transparent; color:var(--muted);
+    border:none; border-right:1px solid var(--muted);
+    padding:13px 16px; cursor:pointer;
+    transition:all 0.25s ease;
+    white-space:nowrap;
+  }
+  nav.dial button:last-child{ border-right:none; }
+  nav.dial button .num{ opacity:0.55; margin-right:8px; }
+
+  nav.dial button:hover{ color:var(--text); background:rgba(255,255,255,0.04); }
+
+  nav.dial button.active{
+    background:var(--accent); color:var(--bg2); font-weight:700;
+  }
+  nav.dial button.active .num{ opacity:0.75; }
+
+  /* ---------- HERO ---------- */
+
+  .hero{ padding:56px 0 40px; border-bottom:1px solid rgba(255,255,255,0.08); }
+
+  .concept-tag{
+    font-size:11px; letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--accent2); margin-bottom:18px; display:block;
+  }
+
+  h2.concept-title{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(38px, 8vw, 68px);
+    line-height:1.05;
+    color:var(--text);
+    margin-bottom:22px;
+    transition:font-family 0.3s ease;
+  }
+
+  .concept-line{
+    font-size:16px; line-height:1.7; color:var(--text); max-width:560px;
+    margin-bottom:8px;
+  }
+
+  .concept-sub{
+    font-size:12px; letter-spacing:0.05em; color:var(--muted); max-width:560px;
+  }
+
+  /* ---------- ANCHOR CALLOUT (concept 1 only) ---------- */
+
+  .anchor-box{
+    margin-top:28px; padding:18px 20px;
+    border:1px dashed var(--accent);
+    border-radius:var(--radius);
+    display:none;
+  }
+  .anchor-box.show{ display:block; }
+  .anchor-box .label{ font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+  .anchor-box .name{ font-size:20px; font-weight:700; }
+  .anchor-box .note{ font-size:11px; color:var(--muted); margin-top:6px; line-height:1.6; }
+
+  /* ---------- ESSAY ---------- */
+
+  .essay{
+    margin-top:32px; max-width:640px;
+  }
+  .essay .essay-label{
+    font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+  }
+  .essay .essay-label::after{
+    content:''; flex:1; height:1px; background:rgba(255,255,255,0.12);
+  }
+  .essay p{
+    font-size:14px; line-height:1.85; color:var(--text);
+    margin-bottom:16px; opacity:0.92;
+  }
+  .essay p:last-child{ margin-bottom:0; }
+  .essay p b{ color:var(--accent2); font-weight:700; }
+  .essay h4{
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent2); margin:22px 0 8px;
+  }
+  .essay h4:first-child{ margin-top:0; }
+
+  /* ---------- THEME GRID ---------- */
+
+  .themes{
+    display:grid; grid-template-columns:1fr; gap:1px;
+    background:rgba(255,255,255,0.08);
+    margin-top:44px; border:1px solid rgba(255,255,255,0.08);
+  }
+
+  .theme-card{
+    background:var(--bg); padding:26px 24px;
+  }
+
+  .theme-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
+
+  .theme-title{ font-size:16px; font-weight:700; letter-spacing:0.01em; }
+
+  .theme-desc{ font-size:12.5px; color:var(--muted); line-height:1.6; margin-bottom:18px; max-width:600px; }
+
+  .names{ display:flex; flex-wrap:wrap; gap:9px; }
+
+  .chip{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:8px 13px; font-size:12.5px;
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:999px; color:var(--text);
+    background:rgba(255,255,255,0.02);
+  }
+
+  .chip.flag{ border-color:var(--accent2); }
+  .chip .badge{
+    font-size:9px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--accent2); border:1px solid var(--accent2);
+    padding:2px 6px; border-radius:999px;
+  }
+  .chip.pick{ border-color:var(--accent); background:rgba(255,255,255,0.04); }
+  .chip .badge.pick{ color:var(--accent); border-color:var(--accent); }
+
+  /* ---------- FOOTNOTE ---------- */
+
+  .footnote{
+    margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);
+    font-size:12px; color:var(--muted); line-height:1.7; max-width:640px;
+  }
+  .footnote b{ color:var(--text); }
+
+  /* ---------- THREAD CALLOUT ---------- */
+
+  .thread{
+    margin-top:64px; padding:22px 24px;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--radius);
+    font-size:12.5px; line-height:1.75; color:var(--muted);
+  }
+  .thread .label{
+    font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--text); margin-bottom:10px; display:block;
+  }
+  .thread b{ color:var(--text); }
+
+  footer{
+    margin-top:60px; font-size:11px; color:var(--muted);
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:600px){
+    nav.dial{ flex-wrap:wrap; width:100%; }
+    nav.dial button{ flex:1 1 45%; border-bottom:1px solid var(--muted); text-align:center; }
+  }
+</style>
+</head>
+<body data-concept="cosmic">
+
+<div id="bgLayer"></div>
+
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Band meeting — name concepts</span>
+    <h1 class="masthead">FOUR SIGNALS</h1>
+    <p class="masthead-sub">Four directions for the band identity. Each one is a different channel — its own palette, its own mood, its own set of possible names. Tune in.</p>
+
+    <nav class="dial" id="dial">
+      <button data-concept="cosmic" class="active"><span class="num">01</span>Cosmic</button>
+      <button data-concept="surprise"><span class="num">02</span>Surprise</button>
+      <button data-concept="nocturnal"><span class="num">03</span>Nocturnal</button>
+      <button data-concept="road"><span class="num">04</span>Uncharted</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="concept-tag" id="tag">Concept 01</span>
+    <h2 class="concept-title" id="title">Redshift Motel</h2>
+    <p class="concept-line" id="line">Light stretching red as it runs from you. A room that glows anyway.</p>
+    <p class="concept-sub" id="sub">Spacey, lost, universal, expansive.</p>
+
+    <div class="anchor-box" id="anchorBox">
+      <div class="label">Front-runner</div>
+      <div class="name">Redshift Motel</div>
+      <div class="note">Full two-word name checked — no conflicts found. "Redshift" alone is crowded (a UK prog three-piece, a Seattle surf-punk act, an electronic act, and more), so always use the full name on socials and releases, never shortened.</div>
+    </div>
+
+    <div class="essay" id="essay"></div>
+  </section>
+
+  <section class="themes" id="themes"></section>
+
+  <div class="footnote" id="footnote"></div>
+
+  <div class="thread">
+    <span class="label">Cross-concept thread</span>
+    Cosmic, Surprise, and Uncharted Road all keep circling the same image: <b>the blind corner, the vanishing point, the edge of what's visible.</b> Worth naming out loud at the meeting — either it's the deliberate throughline of the whole band identity, or a reason to push one concept further from the others.
+  </div>
+
+  <footer>Built for the band — pick a channel, argue about it, pick a name.</footer>
+
+</div>
+
+<script>
+const DATA = {
+  cosmic: {
+    tagNum: "Concept 01",
+    title: "Redshift Motel",
+    line: "Light stretching red as it runs from you. A room that glows anyway.",
+    sub: "Spacey, lost, universal, expansive.",
+    showAnchor: true,
+    essay: [
+      "<h4>The core idea</h4>",
+      "\u201cRedshift\u201d is real astrophysics \u2014 light stretching toward red as an object moves away from you, the signature of an expanding universe. \u201cMotel\u201d grounds it in something roadside, lonely, American, transient. Together it reads like a truck-stop on the edge of the galaxy \u2014 a place you pass through, not stay. That tension (<b>cosmic vastness + cheap neon room</b>) is a great match for instrumental, story-driven, riff-heavy music: it's evocative without being generic \u201cspace band\u201d naming.",
+      "<h4>Why it suits a 3-piece</h4>",
+      "It doesn't oversell \u2014 no \u201ccollective,\u201d no grandiosity. It sounds like a <b>place</b>, which lets each song feel like a room in that motel. That's a strong structural gift for a titling instinct built around telling stories.",
+      "<h4>Visual identity it unlocks</h4>",
+      "A neon sign motif \u2014 a flickering \u201cVACANCY\u201d sign, redshifted from blue to red. Retro motel signage font mixed with star charts / spectral line diagrams. A desert highway at night, a single motel glowing under a smeared, elongated starfield.",
+      "<h4>How it extends into song titles</h4>",
+      "Every track becomes a scene <i>at</i> the motel \u2014 a guest, an object, an event passing through \u2014 which gives the whole catalog a built-in narrative device without repeating itself. (See the bonus track-title list below.)"
+    ],
+    themes: [
+      {
+        title: "Deep Space / Cosmic Phenomena",
+        desc: "Nebulae, orbits, dark matter, event horizons.",
+        names: [
+          {n:"Event Horizon", badge:"needs check", flag:true},
+          {n:"Nebula Drift"},
+          {n:"Dark Matter Radio"},
+          {n:"Perihelion"},
+        ]
+      },
+      {
+        title: "Astronaut / Pilot Solitude",
+        desc: "Isolation, transmission, drift, one-way trips.",
+        names: [
+          {n:"Last Transmission"},
+          {n:"One-Way Orbit"},
+          {n:"Silent Frequency"},
+          {n:"Deep Signal"},
+        ]
+      },
+      {
+        title: "Analog Sci-Fi / Retro-Futurism",
+        desc: "Old NASA tech, CRT glow, tape-delay aesthetics.",
+        names: [
+          {n:"Vacuum Tube Voyager"},
+          {n:"Tape Delay Cosmonaut"},
+          {n:"Analog Orbit"},
+          {n:"CRT Comet"},
+        ]
+      },
+      {
+        title: "Desert Meets Space",
+        desc: "Dusty, wide-open, lost highway under the stars.",
+        names: [
+          {n:"Dust Orbit"},
+          {n:"Highway to Andromeda"},
+          {n:"Low Desert, High Orbit"},
+          {n:"Caldera Drift"},
+        ]
+      },
+    ],
+    footnote: "<b>Bonus — track titles in the Redshift Motel world:</b> \u201cRoom 7, Andromeda Side\u201d · \u201cNo Vacancy at the Edge of the Visible Universe\u201d · \u201cIce Machine, Broken, 3 AM\u201d · \u201cThe Sign Buzzes in a Dying Frequency\u201d · \u201cCheckout Time on a Collapsing Star\u201d · \u201cHousekeeping Never Comes\u201d · \u201cLong-Term Guest in Apartment 12, Orion\u201d · \u201cThe Pool's Closed But the Comet's Still Out\u201d · \u201cParking Lot Full of Rental Cars from Nowhere\u201d · \u201cLast One Out, Leave the Light On\u201d"
+  },
+
+  surprise: {
+    tagNum: "Concept 02",
+    title: "The Unexpected Surprise",
+    line: "The bite you didn't see coming. The corner you can't see through.",
+    sub: "A jolt of aliveness inside something familiar — not danger, just a sudden spike of focus.",
+    showAnchor: false,
+    essay: [
+      "<h4>The core idea</h4>",
+      "This feeling is different from Redshift Motel's vastness \u2014 it's about a <b>sudden jolt inside something familiar</b>. Not danger exactly, more like a spike of aliveness: the pepper you didn't see coming, the blind curve that snaps your focus, the key change that catches you off guard. It's punchy, physical, a little mischievous.",
+      "<h4>What it means for the music</h4>",
+      "For a 3-piece with riffy solos, this concept could push toward <b>tighter, more percussive song structures</b> \u2014 the \u201csurprise\u201d becomes a compositional device as much as a lyrical or title theme. Think sudden stops, key shifts, tempo jumps: the surprise isn't just described in the title, it happens to the listener in real time."
+    ],
+    themes: [
+      {
+        title: "Hidden Heat",
+        desc: "Things that seem mild but aren't — the pepper in the queso.",
+        names: [
+          {n:"Ghost Pepper Theory"},
+          {n:"Sneaky Heat"},
+          {n:"Third Bite"},
+          {n:"Slow Burn, Fast Turn"},
+        ]
+      },
+      {
+        title: "Blind Corners",
+        desc: "The turn you can't see, the moment before you commit, trust and instinct.",
+        names: [
+          {n:"Blind Apex", badge:"resonant", pick:true},
+          {n:"No Sightline"},
+          {n:"Late Apex"},
+          {n:"Vanishing Point Turn"},
+        ]
+      },
+      {
+        title: "Sleight of Hand",
+        desc: "Magic-trick misdirection — watch this hand while the other one moves.",
+        names: [
+          {n:"Watch the Other Hand"},
+          {n:"Palmed Card"},
+          {n:"Misdirection Society"},
+          {n:"The Reveal"},
+        ]
+      },
+      {
+        title: "False Floor",
+        desc: "The step that isn't there, the beat that drops out — structural surprise.",
+        names: [
+          {n:"False Floor"},
+          {n:"Trapdoor Theory"},
+          {n:"The Missing Step"},
+        ]
+      },
+      {
+        title: "Static Shock",
+        desc: "Small, sudden, physical jolts — the doorknob spark, not the storm.",
+        names: [
+          {n:"Static Cling"},
+          {n:"Small Shock"},
+          {n:"Doorknob Spark"},
+        ]
+      },
+    ],
+    footnote: "<b>Note:</b> \u201cBlind Apex\u201d is a real riding/racing term — the corner where you can't see the exit — which gives it a double meaning that's authentically yours given the back-road riding world. Strongest personal fit on this board."
+  },
+
+  nocturnal: {
+    tagNum: "Concept 03",
+    title: "Blue Hour",
+    line: "The hour when everyone else is asleep and you're still awake.",
+    sub: "Nocturnal, insomnia — the private hours between gigs and sleep.",
+    showAnchor: false,
+    essay: [
+      "<h4>The core idea</h4>",
+      "The core feeling is the specific quiet of hours nobody else is awake for. Not scary-dark \u2014 more like a <b>private world that only exists between midnight and dawn</b>, where thoughts get clearer or weirder, time moves differently, and the ordinary becomes strange.",
+      "<h4>What it means for the music</h4>",
+      "This could push toward slower builds, sparse verses that erupt into fuller riffs, and <b>negative space as an instrument</b> \u2014 a good tonal contrast to a riffier, punchier concept like Unexpected Surprise. If the set needs a moment to breathe, this is the concept that gives it one."
+    ],
+    themes: [
+      {
+        title: "The Specific Hour",
+        desc: "Not \u201cnight\u201d generically — an exact time, with its own personality.",
+        names: [
+          {n:"Three Ten AM"},
+          {n:"The Hour Between"},
+          {n:"4:44 Club"},
+        ]
+      },
+      {
+        title: "Streetlight / Interior Glow",
+        desc: "Sodium lights, dashboard glow, the fridge light at 2 AM.",
+        names: [
+          {n:"Sodium Glow"},
+          {n:"Porchlight Static"},
+          {n:"The Fridge Light"},
+        ]
+      },
+      {
+        title: "Racing Mind vs. Still Body",
+        desc: "The insomnia paradox — thoughts looping while everything else is silent.",
+        names: [
+          {n:"Loud Mind, Quiet Room"},
+          {n:"Ceiling Fan Thoughts"},
+          {n:"Still Body, Loud Signal"},
+        ]
+      },
+      {
+        title: "Nocturnal Creatures",
+        desc: "Owls, moths — things only active when everyone else sleeps.",
+        names: [
+          {n:"Moth Hour"},
+          {n:"Night Owl Static"},
+          {n:"The Porch Light Moths"},
+        ]
+      },
+      {
+        title: "Pre-Dawn",
+        desc: "The specific quality before sunrise — anticipation, stillness, about to restart.",
+        names: [
+          {n:"Blue Hour", badge:"resonant", pick:true},
+          {n:"Before First Light"},
+          {n:"The Quiet Before Six"},
+        ]
+      },
+    ],
+    footnote: "<b>Note:</b> \u201cBlue Hour\u201d is a real photography/painting term for the pre-dawn and dusk light — it has texture beyond the phrase itself, which makes it hold up better as a standalone name than most of the others here."
+  },
+
+  road: {
+    tagNum: "Concept 04",
+    title: "Uncharted",
+    line: "Miles of nowhere, on purpose. Charting the unknown — outside and in.",
+    sub: "Long, lonely road trips into territory that isn't on the map yet — the road, and the music itself.",
+    showAnchor: false,
+    essay: [
+      "<h4>The core idea</h4>",
+      "The core feeling is <b>distance as a mental state, not just a physical one</b>. This one is close to real life \u2014 solo overnight rides, back roads with no clear destination, the meditative blankness of miles passing. But it's also a metaphor that can be pushed further: exploring uncharted territory in your own head <i>through</i> the music itself, not just on the road.",
+      "<h4>Why it might be the most authentic option</h4>",
+      "This concept has the most natural overlap with who the band already is outside the music \u2014 which could make it the most authentic one on the table, rather than a mood borrowed from somewhere else."
+    ],
+    themes: [
+      {
+        title: "The Literal Road",
+        desc: "Mile markers, empty highways, gas-station towns, driving alone.",
+        names: [
+          {n:"Mile Marker Zero"},
+          {n:"Two-Lane Static"},
+          {n:"Gas Station Town"},
+        ]
+      },
+      {
+        title: "No Destination",
+        desc: "Wandering without a plan — getting lost on purpose.",
+        names: [
+          {n:"No Fixed Destination"},
+          {n:"Wander Without a Map"},
+          {n:"The Long Way, On Purpose"},
+        ]
+      },
+      {
+        title: "Charting the Unknown",
+        desc: "Old exploration language — maps, compasses — turned inward, toward the music.",
+        names: [
+          {n:"Uncharted Static"},
+          {n:"Here Be Dragons", badge:"check usage"},
+          {n:"Blank Map Theory"},
+        ]
+      },
+      {
+        title: "Horizon / Distance",
+        desc: "The flat horizon line, the vanishing point, always slightly out of reach.",
+        names: [
+          {n:"Vanishing Point"},
+          {n:"Flat Line Horizon"},
+          {n:"Always Ten Miles Out"},
+        ]
+      },
+      {
+        title: "Solitude as Companion",
+        desc: "Not lonely-sad — lonely-expansive. Solitude as something chosen and useful.",
+        names: [
+          {n:"Good Company, No One Else"},
+          {n:"Solo Frequency"},
+          {n:"Alone, On Purpose"},
+        ]
+      },
+    ],
+    footnote: "<b>Note:</b> \u201cVanishing Point\u201d overlaps thematically with Concept 02's \u201cblind corner\u201d imagery — see the cross-concept thread below."
+  }
+};
+
+const dial = document.getElementById('dial');
+const bgLayer = document.getElementById('bgLayer');
+
+const BG = {
+  cosmic: `
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 70% 65%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 55% 45%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 92% 80%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(900px 500px at 50% 0%, rgba(124,92,255,0.14), transparent 60%),
+    radial-gradient(700px 400px at 80% 100%, rgba(255,95,109,0.10), transparent 60%)
+  `,
+  surprise: `
+    conic-gradient(from 0deg at 88% 8%, rgba(255,59,31,0.16), transparent 22%),
+    conic-gradient(from 40deg at 6% 92%, rgba(255,207,63,0.10), transparent 28%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 34px)
+  `,
+  nocturnal: `
+    radial-gradient(900px 600px at 50% -10%, rgba(127,168,201,0.10), transparent 60%),
+    radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 80% 35%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(650px 400px at 15% 95%, rgba(242,166,90,0.08), transparent 60%)
+  `,
+  road: `
+    repeating-radial-gradient(circle at 30% 40%, transparent 0px, transparent 38px, rgba(217,192,138,0.045) 39px, transparent 40px),
+    repeating-radial-gradient(circle at 80% 75%, transparent 0px, transparent 52px, rgba(201,106,62,0.05) 53px, transparent 54px)
+  `
+};
+
+function render(key){
+  const d = DATA[key];
+  document.body.setAttribute('data-concept', key);
+  document.getElementById('tag').textContent = d.tagNum;
+  document.getElementById('title').textContent = d.title;
+  document.getElementById('line').textContent = d.line;
+  document.getElementById('sub').textContent = d.sub;
+  document.getElementById('anchorBox').classList.toggle('show', d.showAnchor);
+  document.getElementById('footnote').innerHTML = d.footnote;
+
+  const essayEl = document.getElementById('essay');
+  essayEl.innerHTML = `<div class="essay-label">The concept, in full</div>` +
+    d.essay.map(block => block.startsWith('<h4>') ? block : `<p>${block}</p>`).join('');
+  bgLayer.style.background = BG[key];
+
+  const themesEl = document.getElementById('themes');
+  themesEl.innerHTML = '';
+  d.themes.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'theme-card';
+    const namesHtml = t.names.map(nm => {
+      const cls = ['chip'];
+      if(nm.flag) cls.push('flag');
+      if(nm.pick) cls.push('pick');
+      const badge = nm.badge ? `<span class="badge${nm.pick ? ' pick':''}">${nm.badge}</span>` : '';
+      return `<span class="${cls.join(' ')}">${nm.n}${badge}</span>`;
+    }).join('');
+    card.innerHTML = `
+      <div class="theme-head"><span class="theme-title">${t.title}</span></div>
+      <p class="theme-desc">${t.desc}</p>
+      <div class="names">${namesHtml}</div>
+    `;
+    themesEl.appendChild(card);
+  });
+
+  [...dial.children].forEach(b => b.classList.toggle('active', b.dataset.concept === key));
+}
+
+dial.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  render(btn.dataset.concept);
+});
+
+render('cosmic');
+</script>
+
+<style id="theme-vars">
+body[data-concept="cosmic"]{
+  --bg:#0a0e1a; --bg2:#050711; --accent:#ff5f6d; --accent2:#7c5cff;
+  --text:#f2efe9; --muted:#8b93ab; --display:'Monoton', cursive;
+}
+body[data-concept="surprise"]{
+  --bg:#161311; --bg2:#0d0c0b; --accent:#ff3b1f; --accent2:#ffcf3f;
+  --text:#f5efe6; --muted:#a89b8c; --display:'Anton', sans-serif;
+}
+body[data-concept="nocturnal"]{
+  --bg:#0c1220; --bg2:#080c16; --accent:#f2a65a; --accent2:#7fa8c9;
+  --text:#e7e6df; --muted:#5f6a82; --display:'Cormorant Garamond', serif;
+}
+body[data-concept="road"]{
+  --bg:#241c14; --bg2:#1a140e; --accent:#c96a3e; --accent2:#d9c08a;
+  --text:#f3ead9; --muted:#9c8b70; --display:'Rye', serif;
+}
+body[data-concept="nocturnal"] h2.concept-title{ font-style:italic; font-weight:600; }
+</style>
+
+</body>
+</html>
