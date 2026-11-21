@@ -56,6 +56,11 @@ nav ul a:hover{color:var(--white)}
 .wm span{position:absolute;inset:0;-webkit-mask:url(assets/img/brand/wordmark-mask.png) center/contain no-repeat;mask:url(assets/img/brand/wordmark-mask.png) center/contain no-repeat}
 .wm .c{background:var(--cyan);transform:translate(-5px,4px);opacity:.38}
 .wm .r{background:var(--red)}
+.motel{position:absolute;left:0;right:0;bottom:0;height:84px;z-index:-1;background:#0B0B10;border-top:2px solid #4A1020;display:flex;justify-content:space-evenly;align-items:flex-start;padding-top:22px}
+.motel i{width:44px;height:30px;background:#111117}
+.motel i.lit{background:#F0A63A;opacity:.55;box-shadow:0 0 18px rgba(240,166,58,.25)}
+.motel i.dim{opacity:.3}
+@media(max-width:600px){.motel{height:64px;padding-top:16px}.motel i{width:30px;height:22px}.motel i:nth-child(n+7){display:none}}
 .hero h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .tag{font:500 clamp(17px,2vw,21px)/1.45 var(--body);max-width:30ch;margin:30px auto 8px;text-wrap:balance}
 .loc{font:500 13px var(--mono);color:var(--dim);letter-spacing:.08em;margin:0 0 30px}
@@ -137,8 +142,8 @@ dd{margin:0}
 
 /* contact */
 #contact{background:radial-gradient(80% 70% at 50% 110%,rgba(255,42,58,.2),transparent 70%),var(--void)}
-.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end}
-.email{display:inline-block;font:800 clamp(30px,5.4vw,64px)/1.05 var(--sign);text-transform:uppercase;text-decoration:none;color:var(--white);overflow-wrap:anywhere;text-shadow:-3px 2px 0 rgba(46,235,214,.45),2px -1px 0 rgba(255,42,58,.7)}
+.contact{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end}
+.email{display:inline-block;font:800 clamp(28px,3.6vw,48px)/1.05 var(--sign);text-transform:uppercase;text-decoration:none;color:var(--white);white-space:nowrap;text-shadow:-3px 2px 0 rgba(46,235,214,.45),2px -1px 0 rgba(255,42,58,.7)}
 .email:hover{color:var(--red)}
 .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .links{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
@@ -152,7 +157,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);display:flex;
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
 @media(max-width:860px){.player,.about,.contact{grid-template-columns:minmax(0,1fr)}.deck{position:relative;top:0}}
-@media(max-width:600px){nav .brand span{display:none}nav ul a{padding:10px 8px;font-size:13.5px}.hero{padding-bottom:120px}ol.tracks button{grid-template-columns:36px minmax(0,1fr) auto;padding:0 8px}}
+@media(max-width:600px){.email{white-space:normal;overflow-wrap:anywhere}nav .brand span{display:none}nav ul a{padding:10px 8px;font-size:13.5px}.hero{padding-bottom:120px}ol.tracks button{grid-template-columns:36px minmax(0,1fr) auto;padding:0 8px}}
 </style>
 </head>
 <body>
@@ -176,13 +181,8 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);display:flex;
    <path d="M-80 600 C 300 500 560 380 760 300 S 1200 140 1540 70" stroke="#FF2A3A" stroke-width="9" opacity=".55" filter="url(#gl)"/>
    <path d="M-80 600 C 300 500 560 380 760 300 S 1200 140 1540 70" stroke="#FF6A75" stroke-width="2.4"/>
   </g>
-  <g fill="#0B0B10">
-   <path d="M0 900 V808 H180 V790 L1180 790 V808 H1440 V900Z"/>
-  </g>
-  <path d="M180 790 H1180" stroke="#4A1020" stroke-width="2"/>
-  <g fill="#111117"><rect x="250" y="818" width="44" height="30"/><rect x="380" y="818" width="44" height="30"/><rect x="640" y="818" width="44" height="30"/><rect x="770" y="818" width="44" height="30"/><rect x="1030" y="818" width="44" height="30"/></g>
-  <rect x="510" y="818" width="44" height="30" fill="#F0A63A" opacity=".55"/><rect x="900" y="818" width="44" height="30" fill="#F0A63A" opacity=".3"/>
  </svg>
+ <div class="motel" aria-hidden="true"><i></i><i></i><i class="lit"></i><i></i><i></i><i></i><i class="lit dim"></i><i></i><i></i></div>
  <div>
   <h1>Redshift Motel</h1>
   <div class="wm" role="img" aria-label="Redshift Motel"><span class="c"></span><span class="r"></span></div>
