@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redshift Motel — EPK</title>
+<meta name="description" content="Redshift Motel is an instrumental rock three-piece from Austin, Texas, playing music from the last bar at the edge of the galaxy.">
+<meta property="og:title" content="Redshift Motel — Electronic Press Kit">
+<meta property="og:description" content="Instrumental rock from the last bar at the edge of the galaxy. Austin, TX.">
+<meta property="og:image" content="assets/img/brand/og-image.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07070A">
+<link rel="icon" type="image/png" href="assets/img/brand/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a roadside motel sign at 3 a.m. — quiet, confident, a little cosmic.
+   IDEA: the EPK behaves like the motel itself: one lit sign, a row of rooms (sections), a jukebox.
+   PICTURE: the tube-sign wordmark glowing over a black sky, crossed by one red light-trail with a cyan ghost.
+   COLOUR and TYPE: Void Black, Signal Red, Blueshift Cyan, a touch of Amber; Big Shoulders signage, JetBrains Mono telemetry, Inter body.
+   LAYOUT: full-bleed hero, then centred bands up to 1180px; player first, then about, live, photos, contact. */
+:root{color-scheme:dark;--void:#07070A;--void2:#0D0D13;--red:#FF2A3A;--cyan:#2EEBD6;--amber:#F0A63A;--maroon:#2E0912;--white:#EDEDF2;--dim:#9A9AA8;--line:#22222C;
+--sign:"Big Shoulders Display","Oswald","Arial Narrow",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--body:"Inter",system-ui,-apple-system,Segoe UI,sans-serif}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--void);color:var(--white);font:16.5px/1.6 var(--body);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(56px,8vw,112px) max(5vw,18px)}
+h2{font:800 clamp(40px,6vw,64px)/1 var(--sign);letter-spacing:.02em;text-transform:uppercase;margin:0 0 10px}
+h2 .ghost{position:relative;display:inline-block}
+.lede{color:var(--dim);margin:0 0 36px;max-width:60ch}
+.mono{font-family:var(--mono)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--white);font:600 15px var(--body);text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--cyan)}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 24px rgba(255,42,58,.35)}
+.btn.primary:hover{background:#ff4352}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;gap:20px;padding:10px max(5vw,18px);background:linear-gradient(var(--void),rgba(7,7,10,.82) 70%,rgba(7,7,10,0));backdrop-filter:blur(6px)}
+nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 20px var(--sign);letter-spacing:.06em;text-transform:uppercase;flex:none}
+nav .brand img{width:34px;height:34px;border-radius:50%}
+nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
+nav ul a{display:block;padding:10px 12px;font:500 14px var(--body);color:var(--dim);text-decoration:none;white-space:nowrap}
+nav ul a:hover{color:var(--white)}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,940px);display:grid;place-items:center;text-align:center;padding:110px max(5vw,18px) 150px;overflow:hidden;isolation:isolate}
+.hero svg.sky{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.wm{position:relative;width:clamp(240px,40vw,470px);aspect-ratio:1400/1375;margin:0 auto;filter:drop-shadow(0 0 5px rgba(255,42,58,.85)) drop-shadow(0 0 26px rgba(255,42,58,.45))}
+.wm span{position:absolute;inset:0;-webkit-mask:url(assets/img/brand/wordmark-mask.png) center/contain no-repeat;mask:url(assets/img/brand/wordmark-mask.png) center/contain no-repeat}
+.wm .c{background:var(--cyan);transform:translate(-5px,4px);opacity:.38}
+.wm .r{background:var(--red)}
+.hero h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tag{font:500 clamp(17px,2vw,21px)/1.45 var(--body);max-width:30ch;margin:30px auto 8px;text-wrap:balance}
+.loc{font:500 13px var(--mono);color:var(--dim);letter-spacing:.08em;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.trail path{fill:none;stroke-linecap:round}
+@media (prefers-reduced-motion:no-preference){
+ .trail path{stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 2.4s .3s cubic-bezier(.6,0,.2,1) forwards}
+ .trail .gh{animation-delay:.42s}
+ @keyframes draw{to{stroke-dashoffset:0}}
+}
+
+/* player */
+#listen{background:linear-gradient(var(--void),var(--void2))}
+.player{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(20px,4vw,48px);align-items:start}
+.deck{position:sticky;top:90px;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,32px);background:radial-gradient(120% 90% at 0% 0%,rgba(255,42,58,.12),transparent 60%),radial-gradient(90% 80% at 100% 100%,rgba(46,235,214,.07),transparent 60%),#0A0A0F}
+.now-l{font:500 12px var(--mono);color:var(--cyan);letter-spacing:.12em;margin:0}
+.now{font:800 clamp(38px,5vw,56px)/1 var(--sign);text-transform:uppercase;margin:8px 0 26px;text-shadow:-3px 2px 0 rgba(46,235,214,.35),0 0 18px rgba(255,42,58,.45);color:var(--red);min-height:1em}
+.bar{position:relative;height:28px;cursor:pointer;touch-action:none}
+.bar .rail,.bar .fill,.bar .gfill{position:absolute;left:0;top:12px;height:4px;border-radius:4px}
+.bar .rail{right:0;background:#23232D}
+.bar .gfill{background:var(--cyan);opacity:.5;transform:translate(-3px,3px)}
+.bar .fill{background:var(--red);box-shadow:0 0 10px var(--red)}
+.bar .knob{position:absolute;top:7px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--white);box-shadow:0 0 10px var(--red)}
+.times{display:flex;justify-content:space-between;font:500 13px var(--mono);color:var(--dim);margin-top:2px}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:20px}
+.ctrl button{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--white);cursor:pointer}
+.ctrl button:hover{border-color:var(--cyan)}
+.ctrl .pp{width:72px;height:72px;background:var(--red);border-color:var(--red);box-shadow:0 0 30px rgba(255,42,58,.45)}
+.ctrl svg{width:20px;height:20px;fill:currentColor}
+.ctrl .pp svg{width:28px;height:28px}
+ol.tracks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+ol.tracks button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;width:100%;min-height:64px;padding:0 14px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .2s}
+ol.tracks button:hover{background:#101017}
+ol.tracks button:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+ol.tracks .n{font:500 13px var(--mono);color:var(--dim)}
+ol.tracks .t{font:700 clamp(22px,2.6vw,28px)/1.1 var(--sign);text-transform:uppercase;letter-spacing:.03em}
+ol.tracks .d{font:500 13px var(--mono);color:var(--dim)}
+ol.tracks .on{background:linear-gradient(90deg,rgba(255,42,58,.14),transparent 70%)}
+ol.tracks .on .t{color:var(--red)}
+ol.tracks .on .n{color:var(--cyan)}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px}
+.eq i{width:3px;background:var(--cyan);height:4px}
+.playing .eq i{animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:.3s!important}.eq i:nth-child(3){animation-delay:.6s!important}
+@keyframes eq{to{height:12px}}
+@media (prefers-reduced-motion:reduce){.playing .eq i{animation:none;height:9px}}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.about p.bio{font-size:clamp(18px,1.9vw,21px);line-height:1.65;margin:0 0 18px;max-width:62ch}
+.about p.short{color:var(--dim);margin:0}
+dl.facts{margin:0;border-top:1px solid var(--line)}
+dl.facts div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+dt{font:500 12px/1.9 var(--mono);color:var(--cyan);letter-spacing:.08em;text-transform:uppercase}
+dd{margin:0}
+
+/* live */
+#live{background:var(--void2)}
+.video{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(70% 90% at 50% 120%,rgba(255,42,58,.28),transparent 70%),#09090D;display:grid;place-items:center;text-align:center}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .ph{padding:24px}
+.video .ph b{display:block;font:800 clamp(28px,4vw,44px)/1 var(--sign);text-transform:uppercase;margin-bottom:10px}
+.video .ph p{color:var(--dim);margin:0 0 20px}
+.video .poster{all:unset;position:absolute;inset:0;cursor:pointer;background:center/cover no-repeat}
+.video .poster::after{content:"";position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/38px no-repeat;box-shadow:0 0 34px rgba(255,42,58,.6)}
+
+/* photos */
+.grid{columns:3 280px;column-gap:14px}
+.grid button{all:unset;display:block;margin:0 0 14px;break-inside:avoid;border-radius:12px;overflow:hidden;cursor:zoom-in;position:relative;background:#111}
+.grid img{width:100%;height:auto;transition:transform .5s,filter .3s}
+.grid button:hover img{transform:scale(1.03)}
+.grid button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.dl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:20px;color:var(--dim);font-size:14px}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(4,4,6,.96);display:none;grid-template-rows:minmax(0,1fr) auto;padding:56px 12px 16px}
+.lb.open{display:grid}
+.lb img{max-width:100%;max-height:100%;margin:auto;object-fit:contain;border-radius:6px}
+.lb .bar2{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding-top:14px}
+.lb .x{position:absolute;top:10px;right:12px}
+.lb .count{font:500 13px var(--mono);color:var(--dim);min-width:5em;text-align:center}
+
+/* contact */
+#contact{background:radial-gradient(80% 70% at 50% 110%,rgba(255,42,58,.2),transparent 70%),var(--void)}
+.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end}
+.email{display:inline-block;font:800 clamp(30px,5.4vw,64px)/1.05 var(--sign);text-transform:uppercase;text-decoration:none;color:var(--white);overflow-wrap:anywhere;text-shadow:-3px 2px 0 rgba(46,235,214,.45),2px -1px 0 rgba(255,42,58,.7)}
+.email:hover{color:var(--red)}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.links li{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:58px;border-bottom:1px solid var(--line)}
+.links a{text-decoration:none;font-weight:600}
+.links a:hover{color:var(--cyan)}
+.links .soon{font:500 12px var(--mono);color:var(--dim);letter-spacing:.06em}
+.links .lbl{font:500 12px var(--mono);color:var(--cyan);letter-spacing:.08em;text-transform:uppercase}
+footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;color:var(--dim);font-size:13px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;background:#15151C;border:1px solid var(--line);padding:10px 16px;border-radius:999px;font-size:14px;transition:.3s;z-index:60}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:860px){.player,.about,.contact{grid-template-columns:minmax(0,1fr)}.deck{position:relative;top:0}}
+@media(max-width:600px){nav .brand span{display:none}nav ul a{padding:10px 8px;font-size:13.5px}.hero{padding-bottom:120px}ol.tracks button{grid-template-columns:36px minmax(0,1fr) auto;padding:0 8px}}
+</style>
+</head>
+<body>
+<nav aria-label="Primary">
+ <a class="brand" href="#top"><img src="assets/img/brand/rm-logo-160.png" alt=""><span>Redshift Motel</span></a>
+ <ul>
+  <li><a href="#listen">Listen</a></li><li><a href="#about">About</a></li><li><a href="#live">Live</a></li><li><a href="#photos">Photos</a></li><li><a href="#contact">Contact</a></li>
+ </ul>
+</nav>
+
+<header class="hero" id="top">
+ <svg class="sky" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+   <linearGradient id="hz" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#07070A"/><stop offset="1" stop-color="#2E0912"/></linearGradient>
+   <filter id="gl" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#hz)"/>
+  <g id="stars"></g>
+  <g class="trail">
+   <path class="gh" d="M-80 600 C 300 500 560 380 760 300 S 1200 140 1540 70" stroke="#2EEBD6" stroke-width="2" opacity=".55" transform="translate(-16 12)"/>
+   <path d="M-80 600 C 300 500 560 380 760 300 S 1200 140 1540 70" stroke="#FF2A3A" stroke-width="9" opacity=".55" filter="url(#gl)"/>
+   <path d="M-80 600 C 300 500 560 380 760 300 S 1200 140 1540 70" stroke="#FF6A75" stroke-width="2.4"/>
+  </g>
+  <g fill="#0B0B10">
+   <path d="M0 900 V808 H180 V790 L1180 790 V808 H1440 V900Z"/>
+  </g>
+  <path d="M180 790 H1180" stroke="#4A1020" stroke-width="2"/>
+  <g fill="#111117"><rect x="250" y="818" width="44" height="30"/><rect x="380" y="818" width="44" height="30"/><rect x="640" y="818" width="44" height="30"/><rect x="770" y="818" width="44" height="30"/><rect x="1030" y="818" width="44" height="30"/></g>
+  <rect x="510" y="818" width="44" height="30" fill="#F0A63A" opacity=".55"/><rect x="900" y="818" width="44" height="30" fill="#F0A63A" opacity=".3"/>
+ </svg>
+ <div>
+  <h1>Redshift Motel</h1>
+  <div class="wm" role="img" aria-label="Redshift Motel"><span class="c"></span><span class="r"></span></div>
+  <p class="tag">Instrumental rock from the last bar at the edge of the galaxy.</p>
+  <p class="loc">AUSTIN, TX · GUITAR · BASS · DRUMS</p>
+  <div class="cta">
+   <button class="btn primary" id="heroPlay" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Play a sample</button>
+   <a class="btn" href="#contact">Booking &amp; press</a>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="band" id="listen" aria-labelledby="h-listen">
+ <div class="wrap">
+  <h2 id="h-listen">Listen</h2>
+  <p class="lede">Six songs from the set. Pick a room.</p>
+  <div class="player">
+   <div class="deck">
+    <p class="now-l">NOW PLAYING</p>
+    <p class="now" id="now">El Ranchero</p>
+    <div class="bar" id="bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+     <div class="rail"></div><div class="gfill" id="gfill"></div><div class="fill" id="fill"></div><div class="knob" id="knob" style="left:0"></div>
+    </div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">1:50</span></div>
+    <div class="ctrl">
+     <button type="button" id="prev" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12 18 6v12z"/></svg></button>
+     <button type="button" class="pp" id="pp" aria-label="Play"><svg viewBox="0 0 24 24" id="ppIcon"><path d="M8 5v14l11-7z"/></svg></button>
+     <button type="button" id="next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button>
+    </div>
+   </div>
+   <ol class="tracks" id="tracks"></ol>
+  </div>
+  <audio id="audio" preload="metadata"></audio>
+ </div>
+</section>
+
+<section class="band" id="about" aria-labelledby="h-about">
+ <div class="wrap">
+  <h2 id="h-about">About</h2>
+  <div class="about">
+   <div>
+    <p class="bio"><strong>Redshift Motel</strong> is a three-piece instrumental rock band from Austin, Texas, playing music from the last bar at the edge of the galaxy. Their sound is riff-driven and cinematic — desert rock run through tape delay, surf reverb pointed at deep space — and every song is a scene at the motel: a guest checking in from three light-years out, an ice machine humming at 3 AM, a transmission nobody can trace.</p>
+    <p class="bio">No vocals, no costumes. Just a working bar band playing a real set for anyone who took the wrong exit off the Milky Way.</p>
+    <p class="short"><span class="mono" style="color:var(--cyan);font-size:12px;letter-spacing:.08em">SHORT BIO&nbsp;&nbsp;</span>Instrumental rock at the edge of the visible universe.</p>
+   </div>
+   <dl class="facts">
+    <div><dt>Based in</dt><dd>Austin, Texas</dd></div>
+    <div><dt>Lineup</dt><dd>Guitar, bass, drums</dd></div>
+    <div><dt>Sound</dt><dd>Instrumental rock, desert rock, cosmic surf, cinematic</dd></div>
+    <div><dt>Booking</dt><dd><a href="mailto:hello@redshiftmotel.com">hello@redshiftmotel.com</a></dd></div>
+    <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/redshiftmotel/" target="_blank" rel="noopener">@redshiftmotel</a></dd></div>
+   </dl>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="live" aria-labelledby="h-live">
+ <div class="wrap">
+  <h2 id="h-live">Live</h2>
+  <p class="lede">What a Redshift Motel set looks and sounds like in the room.</p>
+  <div class="video" id="video">
+   <div class="ph">
+    <b>Live footage coming soon</b>
+    <p>In the meantime, catch clips from recent shows on Instagram.</p>
+    <a class="btn" href="https://www.instagram.com/redshiftmotel/" target="_blank" rel="noopener">Watch on Instagram</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="photos" aria-labelledby="h-photos">
+ <div class="wrap">
+  <h2 id="h-photos">Photos</h2>
+  <p class="lede">Live shots, free to use for press and promotion. Click any photo for the full-size version.</p>
+  <div class="grid" id="grid"></div>
+  <div class="dl"><a class="btn" href="assets/downloads/redshift-motel-press-photos.zip" download>Download all photos (.zip)</a><a class="btn" href="assets/downloads/redshift-motel-logos.zip" download>Download logos (.zip)</a></div>
+ </div>
+</section>
+
+<section class="band" id="contact" aria-labelledby="h-contact">
+ <div class="wrap">
+  <h2 id="h-contact">Contact</h2>
+  <p class="lede">Booking, press and everything else.</p>
+  <div class="contact">
+   <div>
+    <a class="email" href="mailto:hello@redshiftmotel.com">hello@redshiftmotel.com</a>
+    <div class="row">
+     <a class="btn primary" href="mailto:hello@redshiftmotel.com?subject=Booking%20inquiry%20%E2%80%94%20Redshift%20Motel">Email us</a>
+     <button class="btn" type="button" id="copy">Copy email address</button>
+    </div>
+   </div>
+   <ul class="links" id="links"></ul>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><span>© <span id="yr">2026</span> Redshift Motel · Austin, TX</span><span>Instrumental rock at the edge of the visible universe.</span></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+ <button class="btn x" type="button" id="lbX" aria-label="Close">Close ✕</button>
+ <img id="lbImg" alt="">
+ <div class="bar2">
+  <button class="btn" type="button" id="lbPrev" aria-label="Previous photo">← Prev</button>
+  <span class="count" id="lbCount"></span>
+  <button class="btn" type="button" id="lbNext" aria-label="Next photo">Next →</button>
+  <a class="btn" id="lbDl" download>Download full size</a>
+ </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+{
+/* ===== EDIT ME =====
+   youtubeId: the part after "v=" in a YouTube link, e.g. "dQw4w9WgXcQ". Leave "" to show the placeholder.
+   Streaming links: paste full URLs when they're live; empty shows "Coming soon". */
+const CONFIG = {
+  youtubeId: "",
+  links: [
+    {label: "Instagram", text: "@redshiftmotel", url: "https://www.instagram.com/redshiftmotel/"},
+    {label: "Spotify", text: "Spotify", url: ""},
+    {label: "Apple Music", text: "Apple Music", url: ""}
+  ]
+};
+
+const TRACKS = [
+  ["El Ranchero", "el-ranchero", "1:50"],
+  ["Lightfall", "lightfall", "1:13"],
+  ["Lost in Space", "lost-in-space", "2:29"],
+  ["Espionage", "espionage", "1:41"],
+  ["Pullover", "pullover", "1:53"],
+  ["Velvet Morning", "velvet-morning", "1:37"]
+];
+
+const PHOTOS = [
+  ["01", 600, 900, "The band on stage beneath a red neon RADIO sign"],
+  ["02", 900, 600, "Redshift Motel on the RADIO stage under blue and red light"],
+  ["03", 600, 900, "Guitarist mid-solo under a white spotlight"],
+  ["04", 900, 600, "The trio playing in magenta stage light"],
+  ["05", 600, 900, "Drummer behind the kit under red stage lights"],
+  ["06", 900, 600, "Crowd watching the band beneath the neon RADIO sign"],
+  ["07", 900, 600, "Bassist in a lit-brim hat against a red log wall"],
+  ["08", 900, 600, "Bassist and guitarist side by side, drummer behind"],
+  ["09", 900, 600, "Drummer with glowing light-up sleeves"],
+  ["10", 900, 600, "Guitarist with a white Ibanez in red haze"],
+  ["11", 900, 600, "Bassist and guitarist face off as the drummer grins"],
+  ["12", 900, 600, "Bassist silhouetted against red backlight"]
+];
+
+const $ = id => document.getElementById(id);
+const toast = msg => { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2200); };
+
+/* stars */
+{
+  let s = 7, out = "";
+  const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+  for (let i = 0; i < 110; i++) {
+    const x = rnd() * 1440, y = rnd() * 640, r = rnd() < .9 ? .7 + rnd() * .8 : 1.6, o = .25 + rnd() * .6;
+    const c = rnd() < .08 ? "#2EEBD6" : rnd() < .08 ? "#FF6A75" : "#EDEDF2";
+    out += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" fill="${c}" opacity="${o.toFixed(2)}"/>`;
+  }
+  $("stars").innerHTML = out;
+}
+
+/* player */
+const audio = $("audio"), list = $("tracks");
+let idx = 0;
+list.innerHTML = TRACKS.map((t, i) => `<li><button type="button" data-i="${i}"><span class="n">${String(i + 1).padStart(2, "0")}</span><span class="t">${t[0]}</span><span class="d">${t[2]}</span></button></li>`).join("");
+const fmt = s => isFinite(s) ? `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}` : "0:00";
+const PLAY = '<path d="M8 5v14l11-7z"/>', PAUSE = '<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
+function load(i) {
+  idx = (i + TRACKS.length) % TRACKS.length;
+  const t = TRACKS[idx];
+  audio.src = `assets/audio/${t[1]}.mp3`;
+  $("now").textContent = t[0]; $("dur").textContent = t[2]; setProg(0);
+  list.querySelectorAll("button").forEach((b, j) => {
+    b.classList.toggle("on", j === idx);
+    b.querySelector(".n").innerHTML = j === idx ? '<span class="eq"><i></i><i></i><i></i></span>' : String(j + 1).padStart(2, "0");
+  });
+}
+function play() { audio.play().catch(() => toast("Tap play to start audio")); }
+function setProg(p) {
+  const pc = (p * 100).toFixed(2) + "%";
+  $("fill").style.width = pc; $("gfill").style.width = pc; $("knob").style.left = pc;
+  $("bar").setAttribute("aria-valuenow", Math.round(p * 100));
+}
+audio.addEventListener("timeupdate", () => { $("cur").textContent = fmt(audio.currentTime); if (audio.duration) setProg(audio.currentTime / audio.duration); });
+audio.addEventListener("loadedmetadata", () => $("dur").textContent = fmt(audio.duration));
+audio.addEventListener("play", () => { $("ppIcon").innerHTML = PAUSE; $("pp").setAttribute("aria-label", "Pause"); list.classList.add("playing"); });
+audio.addEventListener("pause", () => { $("ppIcon").innerHTML = PLAY; $("pp").setAttribute("aria-label", "Play"); list.classList.remove("playing"); });
+audio.addEventListener("ended", () => { if (idx < TRACKS.length - 1) { load(idx + 1); play(); } });
+$("pp").addEventListener("click", () => audio.paused ? play() : audio.pause());
+$("prev").addEventListener("click", () => { const p = !audio.paused; if (audio.currentTime > 3) audio.currentTime = 0; else { load(idx - 1); } if (p) play(); });
+$("next").addEventListener("click", () => { const p = !audio.paused; load(idx + 1); if (p) play(); });
+list.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const i = +b.dataset.i; if (i === idx && !audio.paused) { audio.pause(); return; } if (i !== idx) load(i); play(); });
+$("heroPlay").addEventListener("click", () => { play(); $("listen").scrollIntoView({behavior: "smooth"}); });
+const bar = $("bar");
+const seekTo = e => { const r = bar.getBoundingClientRect(); const p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); if (audio.duration) { audio.currentTime = p * audio.duration; setProg(p); } };
+bar.addEventListener("pointerdown", e => { bar.setPointerCapture(e.pointerId); seekTo(e); });
+bar.addEventListener("pointermove", e => { if (bar.hasPointerCapture(e.pointerId)) seekTo(e); });
+bar.addEventListener("keydown", e => { if (!audio.duration) return; if (e.key === "ArrowRight") audio.currentTime = Math.min(audio.duration, audio.currentTime + 5); if (e.key === "ArrowLeft") audio.currentTime = Math.max(0, audio.currentTime - 5); });
+load(0);
+
+/* video */
+if (CONFIG.youtubeId) {
+  const id = encodeURIComponent(CONFIG.youtubeId);
+  const v = $("video");
+  v.innerHTML = `<button class="poster" type="button" aria-label="Play live video" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"></button>`;
+  v.querySelector("button").addEventListener("click", () => {
+    v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Redshift Motel live" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+    audio.pause();
+  });
+}
+
+/* links */
+$("links").innerHTML = CONFIG.links.map(l => `<li><span class="lbl">${l.label}</span>${l.url ? `<a href="${l.url}" target="_blank" rel="noopener">${l.text} ↗</a>` : `<span class="soon">COMING SOON</span>`}</li>`).join("");
+
+/* copy email */
+$("copy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText("hello@redshiftmotel.com"); toast("Email address copied"); }
+  catch { toast("hello@redshiftmotel.com"); }
+});
+
+/* photos + lightbox */
+const name = n => `redshift-motel-live-${n}.jpg`;
+$("grid").innerHTML = PHOTOS.map((p, i) => `<button type="button" data-i="${i}" aria-label="Open photo: ${p[3]}"><img src="assets/img/thumbs/${name(p[0])}" width="${p[1]}" height="${p[2]}" alt="${p[3]}" loading="lazy" decoding="async"></button>`).join("");
+let li = 0, lastFocus = null;
+const lb = $("lb");
+function show(i) {
+  li = (i + PHOTOS.length) % PHOTOS.length;
+  const p = PHOTOS[li];
+  $("lbImg").src = `assets/img/photos/${name(p[0])}`; $("lbImg").alt = p[3];
+  $("lbDl").href = `assets/img/press/${name(p[0])}`; $("lbDl").setAttribute("download", name(p[0]));
+  $("lbCount").textContent = `${li + 1} / ${PHOTOS.length}`;
+}
+function openLb(i) { lastFocus = document.activeElement; show(i); lb.classList.add("open"); document.body.style.overflow = "hidden"; $("lbX").focus(); }
+function closeLb() { lb.classList.remove("open"); document.body.style.overflow = ""; lastFocus && lastFocus.focus(); }
+$("grid").addEventListener("click", e => { const b = e.target.closest("button"); if (b) openLb(+b.dataset.i); });
+$("lbX").addEventListener("click", closeLb);
+$("lbPrev").addEventListener("click", () => show(li - 1));
+$("lbNext").addEventListener("click", () => show(li + 1));
+lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+document.addEventListener("keydown", e => {
+  if (!lb.classList.contains("open")) return;
+  if (e.key === "Escape") closeLb(); if (e.key === "ArrowRight") show(li + 1); if (e.key === "ArrowLeft") show(li - 1);
+});
+let tx = null;
+lb.addEventListener("touchstart", e => tx = e.touches[0].clientX, {passive: true});
+lb.addEventListener("touchend", e => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) show(li + (dx < 0 ? 1 : -1)); tx = null; });
+
+$("yr").textContent = new Date().getFullYear();
+}
+</script>
+</body>
+</html>
